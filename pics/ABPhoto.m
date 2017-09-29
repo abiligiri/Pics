@@ -98,7 +98,7 @@ static NSString *attributesKey = @"r_attributes";
 
 - (NSString *)identifier
 {
-    return _attributes[attributesKey];
+    return _attributes[identiferKey];
 }
 
 - (NSString *)owner
@@ -126,4 +126,10 @@ static NSString *attributesKey = @"r_attributes";
     return _attributes[farmKey];
 }
 
+- (NSURL *)thumbnailURL
+{
+    //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[q].jpg
+    //q is 150x150
+    return [NSURL URLWithString:[NSString stringWithFormat:@"https://farm%@.staticflickr.com/%@/%@_%@_q.jpg", self.farm, self.server, self.identifier, self.secret]];
+}
 @end

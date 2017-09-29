@@ -16,6 +16,7 @@
 @property (nonatomic, readonly, copy) NSString *title;
 @property (nonatomic, readonly, copy) NSString *farm;
 
+- (NSURL *)thumbnailURL;
 - (id)initWithIdentifier:(NSString *)identifier owner:(NSString *)owner secret:(NSString *)secret server:(NSString *)server title:(NSString *)server farm:(NSString *)farm;
 + (ABPhoto *)photoWithJSONObject:(NSDictionary *)object;
 @end

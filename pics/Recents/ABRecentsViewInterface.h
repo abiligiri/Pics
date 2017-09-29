@@ -8,6 +8,8 @@
 
 #ifndef ABRecentsViewInterface_h
 #define ABRecentsViewInterface_h
+@class ABRecentItem;
+@class UIImage;
 
 @protocol ABRecentsViewInterface <NSObject>
 - (void)showLoadMore;
@@ -18,6 +20,8 @@
 - (void)hideLoadingIndicator;
 - (void)loadItems:(NSArray *)items offset:(NSUInteger)offset count:(NSUInteger)count;
 - (void)showError:(NSError *)error;
+
+- (void)showThumbnailImage:(UIImage *)image forRecentItem:(ABRecentItem *)item;
 @end
 
 #endif /* ABRecentsViewInterface_h */

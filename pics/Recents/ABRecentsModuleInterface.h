@@ -9,8 +9,14 @@
 #ifndef ABRecentsModuleInterface_h
 #define ABRecentsModuleInterface_h
 
+@class ABRecentItem;
+@class UIImage;
+
 @protocol ABRecentsModuleInterface <NSObject>
 - (void)updateView;
 - (void)reload;
+- (void)fetchThumbnailForRecentItem:(ABRecentItem *)item;
+- (UIImage *)cachedImageForRecentItem:(ABRecentItem *)item;
+- (void)cancelThumbnailDownloads;
 @end
 #endif /* ABRecentsModuleInterface_h */

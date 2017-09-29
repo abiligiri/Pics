@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		15437FD31F7B97030087289F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15437FD11F7B96BC0087289F /* Main.storyboard */; };
+		15437FD61F7CC7EF0087289F /* ABRecentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 15437FD51F7CC7EF0087289F /* ABRecentItem.m */; };
 		156E58F61F760A9B00C7F09F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E58F51F760A9B00C7F09F /* AppDelegate.m */; };
 		156E58F91F760A9B00C7F09F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E58F81F760A9B00C7F09F /* ViewController.m */; };
 		156E58FE1F760A9B00C7F09F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156E58FD1F760A9B00C7F09F /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 		156E593B1F7B6BE000C7F09F /* ABRecentsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E593A1F7B6BE000C7F09F /* ABRecentsPresenter.m */; };
 		156E593E1F7B80DD00C7F09F /* ABRootWireFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E593D1F7B80DD00C7F09F /* ABRootWireFrame.m */; };
 		156E59411F7B84A200C7F09F /* ABRecentsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59401F7B84A200C7F09F /* ABRecentsWireframe.m */; };
+		15B426D91F7DE8D4003FAB63 /* ABImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 15B426D81F7DE8D4003FAB63 /* ABImageCache.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		15437FD21F7B96BC0087289F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		15437FD41F7CC7EF0087289F /* ABRecentItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentItem.h; sourceTree = "<group>"; };
+		15437FD51F7CC7EF0087289F /* ABRecentItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRecentItem.m; sourceTree = "<group>"; };
 		156E58F11F760A9B00C7F09F /* pics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156E58F41F760A9B00C7F09F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		156E58F51F760A9B00C7F09F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		156E593D1F7B80DD00C7F09F /* ABRootWireFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRootWireFrame.m; sourceTree = "<group>"; };
 		156E593F1F7B84A200C7F09F /* ABRecentsWireframe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsWireframe.h; sourceTree = "<group>"; };
 		156E59401F7B84A200C7F09F /* ABRecentsWireframe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRecentsWireframe.m; sourceTree = "<group>"; };
+		15B426D71F7DE8D4003FAB63 /* ABImageCache.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABImageCache.h; sourceTree = "<group>"; };
+		15B426D81F7DE8D4003FAB63 /* ABImageCache.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABImageCache.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +144,8 @@
 				156E592E1F77667D00C7F09F /* ABPicsDataStore.m */,
 				156E593C1F7B80DD00C7F09F /* ABRootWireFrame.h */,
 				156E593D1F7B80DD00C7F09F /* ABRootWireFrame.m */,
+				15B426D71F7DE8D4003FAB63 /* ABImageCache.h */,
+				15B426D81F7DE8D4003FAB63 /* ABImageCache.m */,
 				156E59371F7B653000C7F09F /* Recents */,
 				156E58FD1F760A9B00C7F09F /* Assets.xcassets */,
 				156E58FF1F760A9B00C7F09F /* LaunchScreen.storyboard */,
@@ -182,6 +190,8 @@
 				156E593A1F7B6BE000C7F09F /* ABRecentsPresenter.m */,
 				156E593F1F7B84A200C7F09F /* ABRecentsWireframe.h */,
 				156E59401F7B84A200C7F09F /* ABRecentsWireframe.m */,
+				15437FD41F7CC7EF0087289F /* ABRecentItem.h */,
+				15437FD51F7CC7EF0087289F /* ABRecentItem.m */,
 			);
 			path = Recents;
 			sourceTree = "<group>";
@@ -323,10 +333,12 @@
 				156E58F91F760A9B00C7F09F /* ViewController.m in Sources */,
 				156E592F1F77667D00C7F09F /* ABPicsDataStore.m in Sources */,
 				156E593B1F7B6BE000C7F09F /* ABRecentsPresenter.m in Sources */,
+				15B426D91F7DE8D4003FAB63 /* ABImageCache.m in Sources */,
 				156E592B1F775D2A00C7F09F /* ABRecentsInteractor.m in Sources */,
 				156E593E1F7B80DD00C7F09F /* ABRootWireFrame.m in Sources */,
 				156E59411F7B84A200C7F09F /* ABRecentsWireframe.m in Sources */,
 				156E59351F78AC1200C7F09F /* ABRecentsLastFetchInfo.m in Sources */,
+				15437FD61F7CC7EF0087289F /* ABRecentItem.m in Sources */,
 				156E59281F76D2CF00C7F09F /* ABPhoto.m in Sources */,
 				156E59041F760A9B00C7F09F /* main.m in Sources */,
 				156E58F61F760A9B00C7F09F /* AppDelegate.m in Sources */,

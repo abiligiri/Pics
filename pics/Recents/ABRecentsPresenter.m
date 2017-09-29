@@ -11,10 +11,17 @@
 #import "ABRecentsModuleInterface.h"
 #import "ABRecentsViewInterface.h"
 #import "ABPhoto.h"
+#import "ABRecentItem.h"
+#import "ABImageCache.h"
+
+@interface ABRecentsPresenter()
+@property (nonatomic, readonly) ABImageCache *imageCache;
+@end
 
 @implementation ABRecentsPresenter
 {
-    NSMutableArray *_items;
+    NSMutableArray <ABRecentItem *> *_items;
+    ABImageCache *_imageCache;
 }
 
 - (instancetype)init
@@ -32,7 +39,10 @@
 {
     if (offset >= _items.count) {
         for (ABPhoto *photo in recents) {
-            [_items addObject:photo.title];
+            ABRecentItem *recentItem = [[ABRecentItem alloc] init];
+            recentItem.title = photo.title;
+            recentItem.thumbnailURL = [photo thumbnailURL];
+            [_items addObject:recentItem];
         }
         
         [self.userInterface loadItems:_items offset:offset count:(_items.count - offset)];
@@ -64,5 +74,36 @@
     [self.userInterface showLoadingIndicator];
     [_items removeAllObjects];
     [self.recentsInteractor reload];
+    [self cancelThumbnailDownloads];
+    [self.imageCache clear];
+}
+
+- (UIImage *)cachedImageForRecentItem:(ABRecentItem *)item
+{
+    return [self.imageCache cachedImageForKey:item];
+}
+
+- (void)fetchThumbnailForRecentItem:(ABRecentItem *)item
+{
+    __weak typeof(self) weakSelf = self;
+    [self.imageCache fetchImageAtURL:item.thumbnailURL key:item completion:^(UIImage *image, NSError *error) {
+        if (!error) {
+            [weakSelf.userInterface showThumbnailImage:image forRecentItem:item];
+        }
+    }];
+}
+
+- (void)cancelThumbnailDownloads
+{
+    [self.imageCache cancel];
+}
+
+- (ABImageCache *)imageCache
+{
+    if (!_imageCache) {
+        _imageCache = [[ABImageCache alloc] init];
+    }
+    
+    return _imageCache;
 }
 @end

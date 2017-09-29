@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ABRecentsPresenter.h"
+#import "ABRecentItem.h"
 
 @interface ViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
@@ -16,7 +17,7 @@
 
 @implementation ViewController
 {
-    __weak NSArray *_items;
+    __weak NSArray <ABRecentItem *> *_items;
     UIButton *_loadMoreButton;
 }
 
@@ -91,7 +92,17 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cell"];
     }
     
-    cell.textLabel.text = _items[indexPath.row];
+    ABRecentItem *item = _items[indexPath.row];
+    cell.textLabel.text = item.title;
+    UIImage *thumbnail = [self.recentsPresenter cachedImageForRecentItem:item];
+    if (thumbnail) {
+        cell.imageView.image = thumbnail;
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"RecentPlaceHolder"];
+        if (tableView.isDragging == NO && tableView.decelerating == NO) {
+            [self.recentsPresenter fetchThumbnailForRecentItem:item];
+        }
+    }
     
     return cell;
 }
@@ -139,5 +150,50 @@
 - (void)hideLoadingIndicator
 {
     [self.loadingIndicator stopAnimating];
+}
+
+- (void)loadImagesForVisibleRows
+{
+    if (_items.count > 0) {
+        NSArray *visibleIndexPaths = [_tableView indexPathsForVisibleRows];
+        
+        for (NSIndexPath *indexPath in visibleIndexPaths) {
+            ABRecentItem *item = _items[indexPath.row];
+            UIImage *image = [self.recentsPresenter cachedImageForRecentItem:item];
+            if (image) {
+                UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+                cell.imageView.image = image;
+            } else {
+                [self.recentsPresenter fetchThumbnailForRecentItem:item];
+            }
+        }
+    }
+}
+
+- (void)showThumbnailImage:(UIImage *)image forRecentItem:(ABRecentItem *)item
+{
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[_items indexOfObject:item] inSection:0];
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    if (cell) {
+        cell.imageView.image = image;
+    }
+}
+#pragma mark -- UIScrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self.recentsPresenter cancelThumbnailDownloads];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [self loadImagesForVisibleRows];
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    if (!decelerate) {
+        [self loadImagesForVisibleRows];
+    }
 }
 @end
