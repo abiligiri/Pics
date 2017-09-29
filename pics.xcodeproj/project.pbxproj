@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		15437FD31F7B97030087289F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15437FD11F7B96BC0087289F /* Main.storyboard */; };
 		156E58F61F760A9B00C7F09F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E58F51F760A9B00C7F09F /* AppDelegate.m */; };
 		156E58F91F760A9B00C7F09F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E58F81F760A9B00C7F09F /* ViewController.m */; };
-		156E58FC1F760A9B00C7F09F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156E58FA1F760A9B00C7F09F /* Main.storyboard */; };
 		156E58FE1F760A9B00C7F09F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 156E58FD1F760A9B00C7F09F /* Assets.xcassets */; };
 		156E59011F760A9B00C7F09F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 156E58FF1F760A9B00C7F09F /* LaunchScreen.storyboard */; };
 		156E59041F760A9B00C7F09F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59031F760A9B00C7F09F /* main.m */; };
 		156E590E1F760A9B00C7F09F /* picsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E590D1F760A9B00C7F09F /* picsTests.m */; };
 		156E59191F760A9B00C7F09F /* picsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59181F760A9B00C7F09F /* picsUITests.m */; };
+		156E59281F76D2CF00C7F09F /* ABPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59271F76D2CF00C7F09F /* ABPhoto.m */; };
+		156E592B1F775D2A00C7F09F /* ABRecentsInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E592A1F775D2A00C7F09F /* ABRecentsInteractor.m */; };
+		156E592F1F77667D00C7F09F /* ABPicsDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E592E1F77667D00C7F09F /* ABPicsDataStore.m */; };
+		156E59321F77669000C7F09F /* ABPicsAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59311F77669000C7F09F /* ABPicsAPIClient.m */; };
+		156E59351F78AC1200C7F09F /* ABRecentsLastFetchInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59341F78AC1200C7F09F /* ABRecentsLastFetchInfo.m */; };
+		156E593B1F7B6BE000C7F09F /* ABRecentsPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E593A1F7B6BE000C7F09F /* ABRecentsPresenter.m */; };
+		156E593E1F7B80DD00C7F09F /* ABRootWireFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E593D1F7B80DD00C7F09F /* ABRootWireFrame.m */; };
+		156E59411F7B84A200C7F09F /* ABRecentsWireframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 156E59401F7B84A200C7F09F /* ABRecentsWireframe.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,12 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15437FD21F7B96BC0087289F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		156E58F11F760A9B00C7F09F /* pics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		156E58F41F760A9B00C7F09F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		156E58F51F760A9B00C7F09F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		156E58F71F760A9B00C7F09F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		156E58F81F760A9B00C7F09F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		156E58FB1F760A9B00C7F09F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		156E58FD1F760A9B00C7F09F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		156E59001F760A9B00C7F09F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		156E59021F760A9B00C7F09F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +59,25 @@
 		156E59141F760A9B00C7F09F /* picsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = picsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		156E59181F760A9B00C7F09F /* picsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = picsUITests.m; sourceTree = "<group>"; };
 		156E591A1F760A9B00C7F09F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		156E59261F76D2CF00C7F09F /* ABPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABPhoto.h; sourceTree = "<group>"; };
+		156E59271F76D2CF00C7F09F /* ABPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABPhoto.m; sourceTree = "<group>"; };
+		156E59291F775D2A00C7F09F /* ABRecentsInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsInteractor.h; sourceTree = "<group>"; };
+		156E592A1F775D2A00C7F09F /* ABRecentsInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRecentsInteractor.m; sourceTree = "<group>"; };
+		156E592C1F775E3800C7F09F /* ABRecentsInteractorIO.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsInteractorIO.h; sourceTree = "<group>"; };
+		156E592D1F77667D00C7F09F /* ABPicsDataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABPicsDataStore.h; sourceTree = "<group>"; };
+		156E592E1F77667D00C7F09F /* ABPicsDataStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABPicsDataStore.m; sourceTree = "<group>"; };
+		156E59301F77669000C7F09F /* ABPicsAPIClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABPicsAPIClient.h; sourceTree = "<group>"; };
+		156E59311F77669000C7F09F /* ABPicsAPIClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABPicsAPIClient.m; sourceTree = "<group>"; };
+		156E59331F78AC1200C7F09F /* ABRecentsLastFetchInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsLastFetchInfo.h; sourceTree = "<group>"; };
+		156E59341F78AC1200C7F09F /* ABRecentsLastFetchInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRecentsLastFetchInfo.m; sourceTree = "<group>"; };
+		156E59361F7B078200C7F09F /* ABRecentsViewInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsViewInterface.h; sourceTree = "<group>"; };
+		156E59381F7B6AE900C7F09F /* ABRecentsModuleInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsModuleInterface.h; sourceTree = "<group>"; };
+		156E59391F7B6BE000C7F09F /* ABRecentsPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsPresenter.h; sourceTree = "<group>"; };
+		156E593A1F7B6BE000C7F09F /* ABRecentsPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRecentsPresenter.m; sourceTree = "<group>"; };
+		156E593C1F7B80DD00C7F09F /* ABRootWireFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRootWireFrame.h; sourceTree = "<group>"; };
+		156E593D1F7B80DD00C7F09F /* ABRootWireFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRootWireFrame.m; sourceTree = "<group>"; };
+		156E593F1F7B84A200C7F09F /* ABRecentsWireframe.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ABRecentsWireframe.h; sourceTree = "<group>"; };
+		156E59401F7B84A200C7F09F /* ABRecentsWireframe.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ABRecentsWireframe.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,11 +130,18 @@
 			children = (
 				156E58F41F760A9B00C7F09F /* AppDelegate.h */,
 				156E58F51F760A9B00C7F09F /* AppDelegate.m */,
-				156E58F71F760A9B00C7F09F /* ViewController.h */,
-				156E58F81F760A9B00C7F09F /* ViewController.m */,
-				156E58FA1F760A9B00C7F09F /* Main.storyboard */,
+				156E59261F76D2CF00C7F09F /* ABPhoto.h */,
+				156E59271F76D2CF00C7F09F /* ABPhoto.m */,
+				156E59301F77669000C7F09F /* ABPicsAPIClient.h */,
+				156E59311F77669000C7F09F /* ABPicsAPIClient.m */,
+				156E592D1F77667D00C7F09F /* ABPicsDataStore.h */,
+				156E592E1F77667D00C7F09F /* ABPicsDataStore.m */,
+				156E593C1F7B80DD00C7F09F /* ABRootWireFrame.h */,
+				156E593D1F7B80DD00C7F09F /* ABRootWireFrame.m */,
+				156E59371F7B653000C7F09F /* Recents */,
 				156E58FD1F760A9B00C7F09F /* Assets.xcassets */,
 				156E58FF1F760A9B00C7F09F /* LaunchScreen.storyboard */,
+				15437FD11F7B96BC0087289F /* Main.storyboard */,
 				156E59021F760A9B00C7F09F /* Info.plist */,
 				156E59031F760A9B00C7F09F /* main.m */,
 			);
@@ -130,6 +164,26 @@
 				156E591A1F760A9B00C7F09F /* Info.plist */,
 			);
 			path = picsUITests;
+			sourceTree = "<group>";
+		};
+		156E59371F7B653000C7F09F /* Recents */ = {
+			isa = PBXGroup;
+			children = (
+				156E58F71F760A9B00C7F09F /* ViewController.h */,
+				156E58F81F760A9B00C7F09F /* ViewController.m */,
+				156E59291F775D2A00C7F09F /* ABRecentsInteractor.h */,
+				156E592A1F775D2A00C7F09F /* ABRecentsInteractor.m */,
+				156E592C1F775E3800C7F09F /* ABRecentsInteractorIO.h */,
+				156E59361F7B078200C7F09F /* ABRecentsViewInterface.h */,
+				156E59331F78AC1200C7F09F /* ABRecentsLastFetchInfo.h */,
+				156E59341F78AC1200C7F09F /* ABRecentsLastFetchInfo.m */,
+				156E59381F7B6AE900C7F09F /* ABRecentsModuleInterface.h */,
+				156E59391F7B6BE000C7F09F /* ABRecentsPresenter.h */,
+				156E593A1F7B6BE000C7F09F /* ABRecentsPresenter.m */,
+				156E593F1F7B84A200C7F09F /* ABRecentsWireframe.h */,
+				156E59401F7B84A200C7F09F /* ABRecentsWireframe.m */,
+			);
+			path = Recents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,9 +292,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				15437FD31F7B97030087289F /* Main.storyboard in Resources */,
 				156E59011F760A9B00C7F09F /* LaunchScreen.storyboard in Resources */,
 				156E58FE1F760A9B00C7F09F /* Assets.xcassets in Resources */,
-				156E58FC1F760A9B00C7F09F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,7 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156E59321F77669000C7F09F /* ABPicsAPIClient.m in Sources */,
 				156E58F91F760A9B00C7F09F /* ViewController.m in Sources */,
+				156E592F1F77667D00C7F09F /* ABPicsDataStore.m in Sources */,
+				156E593B1F7B6BE000C7F09F /* ABRecentsPresenter.m in Sources */,
+				156E592B1F775D2A00C7F09F /* ABRecentsInteractor.m in Sources */,
+				156E593E1F7B80DD00C7F09F /* ABRootWireFrame.m in Sources */,
+				156E59411F7B84A200C7F09F /* ABRecentsWireframe.m in Sources */,
+				156E59351F78AC1200C7F09F /* ABRecentsLastFetchInfo.m in Sources */,
+				156E59281F76D2CF00C7F09F /* ABPhoto.m in Sources */,
 				156E59041F760A9B00C7F09F /* main.m in Sources */,
 				156E58F61F760A9B00C7F09F /* AppDelegate.m in Sources */,
 			);
@@ -303,10 +365,10 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		156E58FA1F760A9B00C7F09F /* Main.storyboard */ = {
+		15437FD11F7B96BC0087289F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				156E58FB1F760A9B00C7F09F /* Base */,
+				15437FD21F7B96BC0087289F /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -370,7 +432,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -419,7 +481,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

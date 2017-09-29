@@ -7,20 +7,46 @@
 //
 
 #import "AppDelegate.h"
+#import "ABRecentsWireframe.h"
+#import "ABRecentsInteractor.h"
+#import "ABPicsAPIClient.h"
+#import "ABPicsDataStore.h"
+#import "ABRecentsPresenter.h"
+#import "ABRootWireFrame.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) ABRootWireframe *rootWireframe;
 @end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [self setupWithWindow:_window];
+    [_window makeKeyWindow];
     return YES;
 }
 
-
+- (void)setupWithWindow:(UIWindow *)window
+{
+    ABPicsAPIClient *apiClient = [[ABPicsAPIClient alloc] initWithAPIKey:@"xxxx"];
+    ABPicsDataStore *dataStore = [[ABPicsDataStore alloc] init];
+    _rootWireframe = [[ABRootWireframe alloc] init];
+    
+    ABRecentsInteractor *recentsInteractor = [[ABRecentsInteractor alloc] initWithDataStore:dataStore apiClient:apiClient];
+    ABRecentsPresenter *recentsPresenter = [[ABRecentsPresenter alloc] init];
+    recentsPresenter.recentsInteractor = recentsInteractor;
+    recentsInteractor.delegate = recentsPresenter;
+    ABRecentsWireframe *recentsWireframe = [[ABRecentsWireframe alloc] init];
+    recentsWireframe.recentsPresenter = recentsPresenter;
+    recentsWireframe.rootWireframe = _rootWireframe;
+    
+    [recentsWireframe presentRecentsInterfaceFromWindow:window];
+    
+    //window -> nav -> recentsVC -> presenter -> interactor -> (apiClient, dataStore)
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
